@@ -36,7 +36,7 @@ const SortPopup = ({ items }) => {
       </svg>{' '}
       Сортировка по:{' '}
       <a className="sort__link" onClick={toggleVisiblePopup}>
-        {items[activeItem]}
+        {items[activeItem].name}
       </a>
       {visiblePopup && (
         <div className="sort__submenu">
@@ -47,8 +47,8 @@ const SortPopup = ({ items }) => {
                 setVisiblePopup(false);
               }}
               className={`sort__submenu-link ${activeItem === index ? 'sort-active' : ''}`}
-              key={`${item}_${index}`}>
-              {item}
+              key={`${item.name}_${index}`}>
+              {item.name}
             </a>
           ))}
         </div>

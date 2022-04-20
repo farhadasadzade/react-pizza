@@ -8,7 +8,7 @@ const Home = ({ pizzas }) => {
     <div>
       <nav className="nav">
         <Categories items={['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']} />
-        <SortPopup items={['популярности', 'по цене', 'по алфавиту']} />
+        <SortPopup items={[{name: 'популярности', type: 'popular'}, {name: 'по цене', type: 'price'}, {name: 'по алфавиту', type: 'alphabet'}]} />
       </nav>
       <h2 className="title">Все пиццы</h2>
       <div className="main">

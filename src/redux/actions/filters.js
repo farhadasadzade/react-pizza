@@ -1,6 +1,6 @@
-export const setSortBy = (name) => ({
+export const setSortBy = (title) => ({
     type: 'SET_SORT_BY',
-    payload: name
+    payload: title
 });
 
 export const setCategory = (index) => ({

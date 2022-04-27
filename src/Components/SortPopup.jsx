@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const SortPopup = React.memo(function SortPopup({ items }) {
+const SortPopup = React.memo(function SortPopup({ items, activeSortType, onClickSortType }) {
   const [visiblePopup, setVisiblePopup] = useState(false);
-  const [activeItem, setActiveItem] = useState(0);
 
   const sortRef = useRef();
 
@@ -36,19 +35,19 @@ const SortPopup = React.memo(function SortPopup({ items }) {
       </svg>{' '}
       Сортировка по:{' '}
       <a className="sort__link" onClick={toggleVisiblePopup}>
-        {items[activeItem].name}
+        {items.find(({type}) => type === activeSortType).title}
       </a>
       {visiblePopup && (
         <div className="sort__submenu">
           {items.map((item, index) => (
             <a
               onClick={() => {
-                setActiveItem(index);
+                onClickSortType(item.type);
                 setVisiblePopup(false);
               }}
-              className={`sort__submenu-link ${activeItem === index ? 'sort-active' : ''}`}
-              key={`${item.name}_${index}`}>
-              {item.name}
+              className={`sort__submenu-link ${activeSortType === item.type ? 'sort-active' : ''}`}
+              key={`${item.title}_${index}`}>
+              {item.title}
             </a>
           ))}
         </div>

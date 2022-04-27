@@ -1,2 +1,2 @@
-#1)npm start
-#2)npm run server
+1)npm start
+2)npm run server

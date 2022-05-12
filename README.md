@@ -1,3 +1,4 @@
 How to start project?
-1) npm start
-2) npm run server
+1) npm i
+2) npm start
+3) npm run server

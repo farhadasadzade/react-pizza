@@ -44,7 +44,7 @@ const Cart = () => {
       <div className="cart__header-logo">
           <i className="fa-solid fa-cart-shopping"></i> Корзина
       </div>
-      <button className="cart__header-btn"><i className="fa-regular fa-trash-can"></i> Очистить корзину</button>
+      <button className="cart__header-btn" onClick={onClearCart}><i className="fa-regular fa-trash-can"></i> Очистить корзину</button>
   </div>
   {addedPizzas.map((obj) => (
               <CartItem

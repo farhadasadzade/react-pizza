@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-function PizzaBlock({ name, imageUrl, price, types, sizes, isLoading }) {
+function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount }) {
   const typeNames = ['тонкое', 'традиционное'];
   const sizeNames = [26, 30, 40]
 
@@ -15,6 +15,18 @@ function PizzaBlock({ name, imageUrl, price, types, sizes, isLoading }) {
 
   const setOnSelectSize = (index) => {
     setActiveSize(index);
+  };
+
+  const onAddPizza = () => {
+    const obj = {
+      id,
+      name,
+      imageUrl,
+      price,
+      size: sizeNames[activeSize],
+      type: typeNames[activeType],
+    };
+    onClickAddPizza(obj);
   };
 
   return (
@@ -53,8 +65,8 @@ function PizzaBlock({ name, imageUrl, price, types, sizes, isLoading }) {
       </div>
       <div className="main__pizza-buy">
         <h3 className="main__pizza-price">от {price} ₽</h3>
-        <button className="main__pizza-btn pizza-btn-active">
-          <i className="fa-solid fa-plus"></i> Добавить <span className="pizza-btn-count">2</span>
+        <button onClick={onAddPizza} className="main__pizza-btn pizza-btn-active">
+          <i className="fa-solid fa-plus"></i> Добавить <span className="pizza-btn-count">{addedCount && <i>{addedCount}</i>}</span>
         </button>
       </div>
     </div>

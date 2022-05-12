@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/img/logo.svg';
 import Button from './Button';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+
+  const { totalPrice, totalCount } = useSelector(({ cart }) => cart);
+
   return (
     <header className="header">
       <Link to="/">
@@ -15,12 +19,14 @@ const Header = () => {
           </div>
         </div>
       </Link>
-      <Button header>
-        <pre>
-          {' '}
-          520 ₽ | <i className="fa-solid fa-cart-shopping"></i> 3{' '}
-        </pre>
-      </Button>
+      <Link to="/cart">
+        <Button header>
+          <pre>
+            {' '}
+            {totalPrice} ₽ | <i className="fa-solid fa-cart-shopping"></i> {totalCount}{' '}
+          </pre>
+        </Button>
+      </Link>
     </header>
   );
 };

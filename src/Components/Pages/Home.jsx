@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { setCategory, setSortBy } from '../../redux/actions/filters'
 import { fetchPizzas } from '../../redux/actions/pizzas'
+import { addPizzaToCart } from '../../redux/actions/cart';
 import ContentLoader from "react-content-loader"
 
 const categoryNames = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
@@ -16,6 +17,7 @@ const Home = () => {
   const items = useSelector(({ pizzas }) => pizzas.items);
   const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
   const { category, sortBy } = useSelector(({ filters }) => filters);
+  const cartItems = useSelector(({ cart }) => cart.items);
 
   const loadingBlocks = Array(10).fill(<ContentLoader 
     speed={2}
@@ -43,6 +45,10 @@ const Home = () => {
     dispatch(fetchPizzas(category, sortBy))
   }, [category, sortBy])
 
+  const handleAddPizzaToCart = (obj) => {
+    dispatch(addPizzaToCart(obj));
+  };
+
   return (
     <div>
       <nav className="nav">
@@ -54,7 +60,7 @@ const Home = () => {
       <div className="main">
         {isLoaded ?
                 items.map((item) => (
-                  <PizzaBlock key={item.id} isLoading={true} {...item} />
+                  <PizzaBlock onClickAddPizza={handleAddPizzaToCart} key={item.id} isLoading={true} {...item} addedCount={cartItems[item.id] && cartItems[item.id].items.length}/>
                 )) 
                 : loadingBlocks
           }

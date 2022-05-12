@@ -464,3 +464,62 @@ body {
     background-color: #D7D7D7;
     color: #000000;
 }
+
+.cart__pizza-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.cart__pizza-count span {
+    color: #EB5A1E;
+}
+
+.cart__pizza-buy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.cart__pizza-buy button:first-child {
+    padding: 15px 25px;
+    background: #FFFFFF;
+    border: 1px solid #D3D3D3;
+    border-radius: 30px;
+    font-family: 'Montserrat';
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.cart__pizza-buy button:first-child:hover {
+    background: #FE5F1E;
+    color: #fff;
+}
+
+.cart__pizza-buy button:last-child {
+    font-weight: 700;
+    font-size: 22px;
+    background: #FE5F1E;
+    border-radius: 30px;
+    font-family: 'Montserrat';
+    padding: 15px 25px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+}
+
+.cart__pizza-buy button:last-child:hover {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+}

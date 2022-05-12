@@ -5,8 +5,6 @@ import Header from './Components/Header'
 import Home from './Components/Pages/Home'
 import Cart from './Components/Pages/Cart'
 
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux'
 
 function App() {
   return (

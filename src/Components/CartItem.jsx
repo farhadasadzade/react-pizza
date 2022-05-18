@@ -20,7 +20,7 @@ const CartItem = ({ id, name, type, size, totalPrice, totalCount, onRemove, onMi
           <img className="cart__pizza-img" src={img} alt="pizza" />
           <div className="cart__pizza-description">
               <h3 className="cart__pizza-name">{name}</h3>
-              <p className="cart__pizza-text">{type}, {size}</p>
+              <p className="cart__pizza-text">{type}, {size} см.</p>
           </div>
       </div>
       <div className="cart__pizza-amount">

@@ -1,3 +1,5 @@
 How to start project?
-1) npm start
-2) npm run server
+1) npm i
+2) npm i json-server
+3) npm start
+4) npm run server

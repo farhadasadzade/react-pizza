@@ -65,8 +65,8 @@ function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, 
       </div>
       <div className="main__pizza-buy">
         <h3 className="main__pizza-price">от {price} ₽</h3>
-        <button onClick={onAddPizza} className="main__pizza-btn pizza-btn-active">
-          <i className="fa-solid fa-plus"></i> Добавить <span className="pizza-btn-count">{addedCount && <i>{addedCount}</i>}</span>
+        <button onClick={onAddPizza} className={classNames('main__pizza-btn', {'pizza-btn-active': addedCount > 0})}>
+          <i className="fa-solid fa-plus"></i> Добавить {addedCount && <span className="pizza-btn-count">{<i>{addedCount}</i>}</span>}
         </button>
       </div>
     </div>
